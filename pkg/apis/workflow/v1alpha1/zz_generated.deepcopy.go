@@ -2725,6 +2725,11 @@ func (in *S3Bucket) DeepCopyInto(out *S3Bucket) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.CASecret != nil {
+		in, out := &in.CASecret, &out.CASecret
+		*out = new(v1.SecretKeySelector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.AccessKeySecret != nil {
 		in, out := &in.AccessKeySecret, &out.AccessKeySecret
 		*out = new(v1.SecretKeySelector)

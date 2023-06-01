@@ -2374,22 +2374,25 @@ type S3Bucket struct {
 	// Insecure will connect to the service with TLS
 	Insecure *bool `json:"insecure,omitempty" protobuf:"varint,4,opt,name=insecure"`
 
+	// CASecret specifies the secret that contains the CA, used to verify the TLS connection
+	CASecret *apiv1.SecretKeySelector `json:"caSecret,omitempty" protobuf:"bytes,5,opt,name=caSecret"`
+
 	// AccessKeySecret is the secret selector to the bucket's access key
-	AccessKeySecret *apiv1.SecretKeySelector `json:"accessKeySecret,omitempty" protobuf:"bytes,5,opt,name=accessKeySecret"`
+	AccessKeySecret *apiv1.SecretKeySelector `json:"accessKeySecret,omitempty" protobuf:"bytes,6,opt,name=accessKeySecret"`
 
 	// SecretKeySecret is the secret selector to the bucket's secret key
-	SecretKeySecret *apiv1.SecretKeySelector `json:"secretKeySecret,omitempty" protobuf:"bytes,6,opt,name=secretKeySecret"`
+	SecretKeySecret *apiv1.SecretKeySelector `json:"secretKeySecret,omitempty" protobuf:"bytes,7,opt,name=secretKeySecret"`
 
 	// RoleARN is the Amazon Resource Name (ARN) of the role to assume.
-	RoleARN string `json:"roleARN,omitempty" protobuf:"bytes,7,opt,name=roleARN"`
+	RoleARN string `json:"roleARN,omitempty" protobuf:"bytes,8,opt,name=roleARN"`
 
 	// UseSDKCreds tells the driver to figure out credentials based on sdk defaults.
-	UseSDKCreds bool `json:"useSDKCreds,omitempty" protobuf:"varint,8,opt,name=useSDKCreds"`
+	UseSDKCreds bool `json:"useSDKCreds,omitempty" protobuf:"varint,9,opt,name=useSDKCreds"`
 
 	// CreateBucketIfNotPresent tells the driver to attempt to create the S3 bucket for output artifacts, if it doesn't exist. Setting Enabled Encryption will apply either SSE-S3 to the bucket if KmsKeyId is not set or SSE-KMS if it is.
-	CreateBucketIfNotPresent *CreateS3BucketOptions `json:"createBucketIfNotPresent,omitempty" protobuf:"bytes,9,opt,name=createBucketIfNotPresent"`
+	CreateBucketIfNotPresent *CreateS3BucketOptions `json:"createBucketIfNotPresent,omitempty" protobuf:"bytes,10,opt,name=createBucketIfNotPresent"`
 
-	EncryptionOptions *S3EncryptionOptions `json:"encryptionOptions,omitempty" protobuf:"bytes,10,opt,name=encryptionOptions"`
+	EncryptionOptions *S3EncryptionOptions `json:"encryptionOptions,omitempty" protobuf:"bytes,11,opt,name=encryptionOptions"`
 }
 
 // S3EncryptionOptions used to determine encryption options during s3 operations

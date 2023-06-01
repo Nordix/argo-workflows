@@ -5013,6 +5013,12 @@ func schema_pkg_apis_workflow_v1alpha1_S3Artifact(ref common.ReferenceCallback) 
 							Format:      "",
 						},
 					},
+					"caSecret": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CASecret specifies the secret that contains the CA, used to verify the TLS connection",
+							Ref:         ref("k8s.io/api/core/v1.SecretKeySelector"),
+						},
+					},
 					"accessKeySecret": {
 						SchemaProps: spec.SchemaProps{
 							Description: "AccessKeySecret is the secret selector to the bucket's access key",
@@ -5098,6 +5104,12 @@ func schema_pkg_apis_workflow_v1alpha1_S3ArtifactRepository(ref common.Reference
 							Description: "Insecure will connect to the service with TLS",
 							Type:        []string{"boolean"},
 							Format:      "",
+						},
+					},
+					"caSecret": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CASecret specifies the secret that contains the CA, used to verify the TLS connection",
+							Ref:         ref("k8s.io/api/core/v1.SecretKeySelector"),
 						},
 					},
 					"accessKeySecret": {
@@ -5192,6 +5204,12 @@ func schema_pkg_apis_workflow_v1alpha1_S3Bucket(ref common.ReferenceCallback) co
 							Description: "Insecure will connect to the service with TLS",
 							Type:        []string{"boolean"},
 							Format:      "",
+						},
+					},
+					"caSecret": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CASecret specifies the secret that contains the CA, used to verify the TLS connection",
+							Ref:         ref("k8s.io/api/core/v1.SecretKeySelector"),
 						},
 					},
 					"accessKeySecret": {
